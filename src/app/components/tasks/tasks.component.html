@@ -13,13 +13,14 @@
     <div class="col-md-6 mx-auto">
         <div class="form-group">
             <label for="label">Label</label>
-            <input type="text" id="label" class="form-control">
+            <input type="text" id="label" class="form-control" [(ngModel)]="myTask.label">
         </div>
         <div class="form-check my-4">
             <label class="form-check-label">
-                <input type="checkbox"  class="form-check-input" value="checkedValue" >Completed
+                <input type="checkbox"  class="form-check-input" value="checkedValue" [(ngModel)]="myTask.completed" >Completed
             </label>
         </div>
+        <!-- {{myTask | json}} -->
         <button class="btn btn-success w-100"><i class="bi bi-send"></i> New Task</button>
     </div>
 </div>
@@ -35,7 +36,7 @@
                         'badge bg-danger rounded-pill':!task.completed}" >
                             <i  [ngClass]="{'bi bi-hand-thumbs-up-fill':task.completed,'bi bi-hand-thumbs-down-fill':!task.completed}"></i>
                 </span>
-                <button class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                <button class="btn btn-danger" (click)="confirmBox(task)"><i class="bi bi-trash-fill"></i></button>
             </li>
         </ul>
     </div>
