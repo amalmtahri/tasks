@@ -21,6 +21,7 @@ export class TasksComponent implements OnInit {
 
   showForm : boolean = false;
   editForm : boolean = false;
+  searchText: string = '';
 
   constructor(private taskServices : TaskService) { }
 
@@ -103,7 +104,10 @@ export class TasksComponent implements OnInit {
           this.editForm = false;
         }
       );
-
+  }
+  //serch 
+  searchTasks() {
+    this.tasks = this.tasks.filter((task) => task.label.toLowerCase().includes(this.searchText.toLowerCase()));
   }
 
 }
