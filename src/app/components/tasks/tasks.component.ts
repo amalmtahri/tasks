@@ -19,8 +19,8 @@ export class TasksComponent implements OnInit {
     'completed': false
   }
 
-  showForm : boolean = false;
-  editForm : boolean = false;
+  showForm = false;
+  editForm = false;
   searchText: string = '';
 
   constructor(private taskServices : TaskService) { }
