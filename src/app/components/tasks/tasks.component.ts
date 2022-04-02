@@ -20,6 +20,7 @@ export class TasksComponent implements OnInit {
   }
 
   showForm : boolean = false;
+  editForm : boolean = false;
 
   constructor(private taskServices : TaskService) { }
 
@@ -83,6 +84,26 @@ export class TasksComponent implements OnInit {
         task.completed = !task.completed;
       }
     )
+  }
+  editeTask(task: Task) {
+    this.myTask = task;
+    this.editForm = true;
+    this.show();
+  }
+  
+  show() {
+    this.showForm = true;
+  }
+
+  updateTask() {
+    this.taskServices.update(this.myTask)
+      .subscribe(
+        task => {
+          this.resteTask();
+          this.editForm = false;
+        }
+      );
+
   }
 
 }

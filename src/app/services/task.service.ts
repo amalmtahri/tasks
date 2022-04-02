@@ -23,4 +23,8 @@ export class TaskService {
   completed(task: Task) {
     return this.http.patch(`${this.urlApi}/${task.id}`, { completed: !task.completed });
   }
+  update(task: Task) {
+    return this.http.put(`${this.urlApi}/${task.id}`, task);
+  }
+
 }
