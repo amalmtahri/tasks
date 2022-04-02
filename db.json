@@ -19,6 +19,11 @@
       "label": "learn React Js",
       "completed": false,
       "id": 4
+    },
+    {
+      "label": "learn Java",
+      "completed": true,
+      "id": 5
     }
   ]
 }
